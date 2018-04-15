@@ -15,6 +15,11 @@ Page({
       url: '../logs/logs'
     })
   },
+  goAddQuestion:function(){
+    wx.navigateTo({
+      url: '../addQuestion/addQuestion'
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
