@@ -20,6 +20,11 @@ Page({
       url: '../addQuestion/addQuestion'
     })
   },
+  goQuestionList: function () {
+    wx.navigateTo({
+      url: '../questionList/questionList'
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

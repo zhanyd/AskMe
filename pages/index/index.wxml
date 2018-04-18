@@ -9,6 +9,8 @@
   </view>
   <view>
     <button bindtap="goAddQuestion"> 新增 </button>
+    <button bindtap="goQuestionList"> 列表 </button>
+    
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>

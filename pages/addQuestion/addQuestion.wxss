@@ -9,6 +9,11 @@
 
 }
 
+.title{
+  background:#f1f8ff;
+  width:90%;
+}
+
 .content{
   background:#f1f8ff;
   width:90%;
