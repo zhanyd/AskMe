@@ -9,35 +9,42 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.request({
-          url: 'http://localhost:8080/user/getOpenidAndSession',
-          data: {
-            code: res.code
-          },
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          success: res => {
-            console.log(res)
-            wx.setStorage({
-              key: "openid",
-              data: res.data.data.openid
-            })
+        wx.getUserInfo({
+          success: userInfo_res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              wx.request({
+                url: this.globalData.url + '/user/getOpenidAndSession',
+                data: {
+                  code: res.code,
+                  nickName: userInfo_res.userInfo.nickName
+                },
+                header: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                success: res => {
+                  console.log(res)
+                  wx.setStorage({
+                    key: "openid",
+                    data: res.data.data.openid
+                  })
 
-            wx.setStorage({
-              key: "sessionKey",
-              data: res.data.data.session_key
-            })
+                  wx.setStorage({
+                    key: "sessionKey",
+                    data: res.data.data.session_key
+                  })
 
-            wx.setStorage({
-              key: "userId",
-              data: res.data.data.userId
-            })
+                  wx.setStorage({
+                    key: "userId",
+                    data: res.data.data.userId
+                  })
 
-            console.log(res.data.data.userId)
-          }
+                  console.log(res.data.data.userId)
+                }
+              })
+            }
         })
+
+       
       }
     })
     // 获取用户信息
@@ -62,6 +69,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    url: "http://192.168.101.251:8080"
   }
 })

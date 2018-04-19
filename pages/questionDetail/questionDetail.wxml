@@ -1,0 +1,23 @@
+<view class="body">
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="title"><text>{{title}}</text></view>
+  <view class="title"><text>{{content}}</text></view>
+  <view class="list">
+    <view class="item" wx:for="{{answerList}}" wx:key="*this" data-id="{{item.id}}">
+      {{item.nick_name}}: {{item.answer}}
+    </view>
+  </view>
+
+  <view class='answer'>
+    <view class='info'>我的回答：</view>
+    <view class='content'>
+      <textarea name="content" value='{{textareaValue}}'/>
+    </view>
+  </view>
+
+  <view class="btn-area">
+        <button type="primary" style="width:30%;" formType="submit">提交</button>
+        <button type="default" style="width:30%;" formType="reset">重置</button>
+    </view>
+</form>
+</view>

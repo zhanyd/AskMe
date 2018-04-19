@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -25,7 +27,7 @@ Page({
     }
 
     wx.request({
-      url: 'http://localhost:8080/user/addNewQuestion', 
+      url: app.globalData.url + '/user/addNewQuestion', 
       data: {
         userId: wx.getStorageSync('userId'),
         title: e.detail.value.title,
@@ -36,6 +38,9 @@ Page({
       },
       success: function (res) {
         console.log(res.data)
+        wx.navigateTo({
+          url: '../questionList/questionList'
+        })
       }
     })
   },

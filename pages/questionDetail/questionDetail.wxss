@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   padding: 20rpx 0;
-  background-color:#f1f8ff;
+  
 }
 
 .title{
@@ -20,4 +20,22 @@
 .item{
   margin-bottom:40rpx;
   border-bottom: 1px solid #e7eaec;
+}
+
+.content{
+  background-color:#f1f8ff;
+}
+
+
+.btn-area{
+  display:flex;
+  margin-top:20rpx;
+
+}
+
+
+.answer{
+  width:80%;
+  margin-left:10%;
+
 }
