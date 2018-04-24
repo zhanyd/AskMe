@@ -70,6 +70,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    url: "http://192.168.101.251:8080"
+    //url: "http://192.168.101.251:8080"
+    url: "http://www.yidinghenbang.com"
   }
 })
